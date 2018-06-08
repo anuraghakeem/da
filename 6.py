@@ -12,7 +12,7 @@ def merge(a,b):
             c.append(b[j])
             j=j+1
             global cnt
-            cnt=cnt+1
+            cnt=cnt+(len(a)-i)
     while(i<len(a)):
         c.append(a[i])
         i=i+1
