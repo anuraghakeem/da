@@ -1,89 +1,98 @@
-#include<stdio.h>
-#include<stdlib.h>
-typedefstruct{
-intkey;
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct
+{
+        int key;
 }element;
-typedefstructnode{
-elementdata;
-structnode*link;
+typedef struct node
+{
+        element data;
+        struct node* link;
 }*stackpointer;
-stackpointertop[20];
-elementstackEmpty()
-{
-elemente;
-e.key=-999;
-printf("StackisEmpty\n");
-returne;
-}
-voidpush(inti,elementitem)
-{
-stackpointertemp=(stackpointer)malloc(sizeof(*temp));
-temp->data=item;
-temp->link=top[i];
-top[i]=temp;
-}
-elementpop(inti)
-{
-stackpointertemp=top[i];
-if(!temp)
 
-returnstackEmpty();
-elementitem;
-item=top[i]->data;
-top[i]=top[i]->link;
-free(temp);
-returnitem;
+
+
+stackpointer top[10]={NULL};
+
+void push(element item, int i)
+{
+        stackpointer temp;
+        temp=(stackpointer)malloc(sizeof(*temp));
+        temp->data=item;
+        temp->link=top[i];
+        top[i]=temp;
+
 }
-voiddisplay(inti)
+element pop(int i)
 {
-stackpointertemp=top[i];
-if(!temp)
-stackEmpty();
-else{
-printf("Stack[%d]:",i);
+        element item;
+        stackpointer temp;
+if(top[i]==NULL)
+item.key = -1;
+
+else
+{
+temp=top[i];
+item = top[i]->data;
+top[i] = top[i]->link;
+free(temp);
+}
+        return item;
+
+
+}
+void display(int i)
+{
+        stackpointer temp;
+if(top[i]==NULL)
+printf("stack %d is empty\n",i);
+
+else
+{
+temp = top[i];
+printf(" stack %d is :\t",i);
 while(temp)
+
 {
-printf("%d->",temp->data.key);
+printf("%d ->",temp->data.key);
 temp=temp->link;
 }
 printf("NULL\n");
 }
 }
-intmain()
+int main()
 {
-intn,i,choice;
-elementitem;
-printf("Enterthenumberofstacks:");
-scanf("%d",&n);
+        int i, choice;
+        element item;
+        while(1)
+        {
+                printf("\nEnter 1. Insert 2. Delete 3. Display\n");
+                scanf("%d",&choice);
+                switch(choice)
+                {
+                case 1:
+                        printf("Enter stack number: ");
+                        scanf("%d",&i);
+                        printf("Enter element to be inserted : ");
+                        scanf("%d",&item.key);
+                        push(item, i);
+                        break;
+            case 2:
+                        printf("Enter stack number: ");
+                        scanf("%d",&i);
+                        item=pop(i);
+                        if(item.key==-1)
+printf("stack %d is empty\n",i);
+else
 
-for(i=0;i<n;i++)
-top[i]=NULL;
-while(1)
-{
-printf("1.Push\n2.pop\n3.Display\n");
-scanf("%d",&choice);
-switch(choice)
-{
-case1:
-printf("Enterthestackno.andelementtopush:");
-scanf("%d%d",&i,&item.key);
-push(i,item);
-break;
-case2:
-printf("Enterthestackno.topop:");
-scanf("%d",&i);
-item=pop(i);
-if(item.key!=-999)
-printf("Elementpopedis%d\n",item.key);
-break;
-case3:
-printf("Enterthestackno.todisplay:");
-scanf("%d",&i);
-display(i);
-break;
-default:
-exit(0);
-}
+                                printf("Element deleted %d", item.key);
+                        break;
+                case 3:
+                        printf("Enter stack number: ");
+                        scanf("%d",&i);
+                        display(i);
 
-}
+
+                }
+        }
 }
