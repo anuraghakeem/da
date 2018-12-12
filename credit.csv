@@ -1,0 +1,7 @@
+name,age,cards,education,income,limit,rating,balance,gender,student,status,ethnicity 
+abc,34,5,be,2000,1000,5,60000,f,no,m,American
+def,22,2,btech,4000,2000,2,20000,m,yes,nm,caucasian
+ghi,36,4,mba,5000,2500,7,35000,f,no,m,African
+jkl,34,5,msc,6000,5000,5,65000,f,yes,nm,American
+mno,76,6,bca,3500,1500,4,40000,m,no,m,African
+pqr,44,8,be,7000,5000,6,45000,m,no,nm,caucasian
